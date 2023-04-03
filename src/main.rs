@@ -53,12 +53,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let mut spinner = Spinner::new(Spinners::Dots12, "Thinking...".to_string());
 
     let chat = client.chat();
-    let response = chat.create(request);
-
-    let output = response.await?;
+    let response = chat.create(request).await?;
 
     spinner.stop();
-    for choice in output.choices {
+    for choice in response.choices {
         println!("-----------------------------------");
         println!(
             "{}\n{}:\n{}\n",
