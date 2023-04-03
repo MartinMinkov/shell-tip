@@ -27,9 +27,7 @@ struct Args {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     let args = Args::parse();
-
     let client = Client::new();
-
     let request = CreateChatCompletionRequestArgs::default()
         .model("gpt-3.5-turbo")
         .messages([
@@ -48,12 +46,9 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .frequency_penalty(0.0)
         .presence_penalty(0.0)
         .build()?;
-
     let mut spinner = Spinner::new(Spinners::Dots12, "Thinking...".to_string());
-
     let chat = client.chat();
     let response = chat.create(request).await?;
-
     spinner.stop();
     for choice in response.choices {
         println!("\n-----------------------------------");
