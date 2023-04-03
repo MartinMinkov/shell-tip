@@ -56,11 +56,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     spinner.stop();
     for choice in response.choices {
-        println!("-----------------------------------");
+        println!("\n-----------------------------------");
         println!(
-            "{}\n{}:\n{}\n",
-            choice.index,
-            "Answer".bold(),
+            "{}:\n{}\n",
+            format!("Answer #{}", choice.index + 1).bold(),
             choice.message.content.green()
         );
     }
