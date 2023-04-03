@@ -14,7 +14,7 @@ struct Args {
     #[arg(
         short,
         long,
-        default_value = "You are a helpful assistant. You are helping a software developer with a programming question. The programmer asks you a question. You reply:"
+        default_value = "Imagine you are an AI assistant specializing in Linux shell commands. Your purpose is to help users navigate the Linux terminal and provide guidance on the appropriate commands or steps to perform various tasks. Answer questions and offer support by suggesting commands, explaining their usage, and offering tips for best practices. Let's begin!"
     )]
     prompt: String,
     #[arg(short, long)]
